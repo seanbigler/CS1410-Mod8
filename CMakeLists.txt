@@ -9,7 +9,8 @@ set(CMAKE_CXX_STANDARD 11)
 #set(SOURCE_FILES exception1.cpp)
 #set(SOURCE_FILES DistanceException.cpp Distance.cpp Distance.h)
 #set(SOURCE_FILES Const.cpp Person.cpp Person.h)
-set(SOURCE_FILES FreeStore.cpp Resource.cpp Resource.h)
+#set(SOURCE_FILES FreeStore.cpp Resource.cpp Resource.h)
+set(SOURCE_FILES Memory.cpp Person.cpp Person.h Resource.cpp Resource.h)
 
 
 

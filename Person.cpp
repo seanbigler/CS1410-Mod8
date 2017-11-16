@@ -9,13 +9,19 @@ Person::Person(string fn, string ln, int an)
     firstName = fn;
     lastName = ln;
     arNumber = an;
+//    pResource = NULL;   // prior to C++ 11
+    //pResource = nullptr;    //C++ 11  Not needed for smart pointers
+
 }
 
 Person::~Person()
 {
-
+    //delete pResource;
 }
-
+/**
+ * Gets Full name for person
+ * @return fullName
+ */
 string Person::getName() const
 {
     string fullName = firstName + " " + lastName;
@@ -60,3 +66,57 @@ bool operator<(int n, const Person &p)
 {
     return n < p.arNumber;
 }
+/**
+ *
+ */
+void Person::AddResource()
+{
+    // Resource r("hello");
+    //pResource = &r;       // Only lives within this method
+    //delete pResource;     // Not needed for smart pointers
+    pResource.reset();
+    //pResource = new Resource("Resource for " + getName());
+    pResource = make_shared<Resource>("Resource for " + getName());
+}
+
+void Person::setFirstName(const string &firstName)
+{
+    Person::firstName = firstName;
+}
+
+void Person::setLastName(const string &lastName)
+{
+    Person::lastName = lastName;
+}
+
+string Person::getResourceName() const
+{
+
+    return pResource->getName();
+}
+/**
+ * Copy Constructor
+ * @param p
+ */
+//Person::Person(const Person &p)
+//{
+//    firstName = p.firstName;
+//    lastName = p.lastName;
+//    arNumber = p.arNumber;
+//    //pResource = p.pResource;  // DO NOT copy reference
+//    // Need to create your own memory
+//    pResource = new Resource(p.pResource->getName());
+//}
+
+//Person &Person::operator=(const Person &p)
+//{
+//    firstName = p.firstName;
+//    lastName = p.lastName;
+//    arNumber = p.arNumber;
+//    delete pResource;
+//    pResource = new Resource(p.pResource->getName());
+//
+//
+//    return *this;   // return yourself
+//}
+
