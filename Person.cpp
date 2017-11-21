@@ -22,13 +22,13 @@ Person::~Person()
  * Gets Full name for person
  * @return fullName
  */
-string Person::getName() const
+string Person::getName()
 {
     string fullName = firstName + " " + lastName;
     return fullName;
 }
 
-int Person::getArNumber() const
+int Person::getArNumber()
 {
     return arNumber;
 }
@@ -42,7 +42,7 @@ void Person::setArNumber(int arNumber)
  * @param p : reference to person
  * @return True or False
  */
-bool Person::operator<(Person &p) const
+bool Person::operator<(Person &p)
 {
 
     return arNumber < p.arNumber;
@@ -52,7 +52,7 @@ bool Person::operator<(Person &p) const
  * @param n : int number
  * @return True or False
  */
-bool Person::operator<(int n) const
+bool Person::operator<(int n)
 {
     return arNumber < n;
 }
@@ -89,7 +89,7 @@ void Person::setLastName(const string &lastName)
     Person::lastName = lastName;
 }
 
-string Person::getResourceName() const
+string Person::getResourceName()
 {
 
     return pResource->getName();

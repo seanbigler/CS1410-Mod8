@@ -22,9 +22,9 @@ public:
     Person(string fn, string ln, int an);
     //Person(const Person &p);  // copy constructor - not needed with smart pointer
     ~Person();
-    string getName() const; // Return first and last name
+    string getName() ; // Return first and last name
     // Setter and Getter for the arNumber
-    int getArNumber() const;
+    int getArNumber() ;
 
     void setArNumber(int arNumber);
 
@@ -32,13 +32,13 @@ public:
 
     void setLastName(const string &lastName);
 
-    string getResourceName() const;
+    string getResourceName() ;
 
     // Operator overload for < and >
     // These should work with int < Person,
     // Person < int, int > Person, Person > int
-    bool operator < (Person &p) const;
-    bool operator < (int n) const;
+    bool operator < (Person &p);
+    bool operator < (int n);
     friend bool operator < (int n, const Person &p);
 
     //Person& operator = (const Person &p);
