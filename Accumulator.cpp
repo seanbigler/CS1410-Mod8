@@ -4,6 +4,7 @@
 //
 #include <iostream>
 #include "Accum.h"
+#include "Person.h"
 
 using namespace std;
 // Constants, Structs, Classes
@@ -27,6 +28,17 @@ int main()
 
     //integers += "Weber";  // Types must match!
     //mystring += 4;
+
+    // Template Specialization
+    //Person start("", "", 0);  // Not needed if Template is specialized
+    Accum<Person> people(0);
+    Person p1("Waldo", "Wildcat", 123);
+    Person p2("Ogden", "Rocks", 789);
+
+    people += p1;
+    people += p2;
+    //cout << people.getTotal().getArNumber() << endl;  // Not needed if template is specialized
+    cout << people.getTotal() << endl;
 
 
     return 0;

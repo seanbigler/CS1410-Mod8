@@ -5,6 +5,8 @@
 #ifndef MOD8_ACCUM_H
 #define MOD8_ACCUM_H
 
+#include "Person.h"
+
 template <class T>
 class Accum
 {
@@ -17,6 +19,25 @@ public:
         return total = total + t;
     }
     T GetTotal()
+    {
+        return total;
+    }
+};
+
+// Template Specialization
+template<>
+class Accum <Person>
+{
+private:
+    int total;
+public:
+    Accum(int start):total(start){};
+
+    int operator += (Person& t)
+    {
+        return total = total + t.getArNumber();
+    }
+    int getTotal()
     {
         return total;
     }
