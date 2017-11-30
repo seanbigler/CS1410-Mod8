@@ -20,6 +20,9 @@ private:
     shared_ptr<Resource> pResource; // Shared pointer
 public:
     Person(string fn, string ln, int an);
+
+    Person();
+
     //Person(const Person &p);  // copy constructor - not needed with smart pointer
     ~Person();
     string getName() ; // Return first and last name
@@ -44,6 +47,8 @@ public:
     //Person& operator = (const Person &p);
 
     void AddResource();
+
+    friend ostream &operator<<(ostream &os, const Person &person);
 
 };
 bool operator < (int i, const Person &p);

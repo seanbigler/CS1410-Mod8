@@ -9,13 +9,14 @@ Person::Person(string fn, string ln, int an)
     firstName = fn;
     lastName = ln;
     arNumber = an;
-//    pResource = NULL;   // prior to C++ 11
+    //pResource = NULL;   // prior to C++ 11
     //pResource = nullptr;    //C++ 11  Not needed for smart pointers
-
+    //cout << "Constructing " << firstName << endl;
 }
 
 Person::~Person()
 {
+    //cout << "Deleting " << firstName << endl;
     //delete pResource;
 }
 /**
@@ -94,6 +95,14 @@ string Person::getResourceName()
 
     return pResource->getName();
 }
+
+ostream &operator<<(ostream &os, const Person &person)
+{
+    os << "firstName: " << person.firstName << " lastName: " << person.lastName << " arNumber: " << person.arNumber;
+    return os;
+}
+
+Person::Person() {}
 /**
  * Copy Constructor
  * @param p
